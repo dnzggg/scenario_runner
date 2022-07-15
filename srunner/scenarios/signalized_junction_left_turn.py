@@ -14,17 +14,17 @@ from numpy import random
 
 import carla
 
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.scenarioatomics.atomic_behaviors import ActorFlow, TrafficLightFreezer
-from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import WaitEndIntersection
-from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from srunner.scenarios.basic_scenario import BasicScenario
-from srunner.tools.scenario_helper import (generate_target_waypoint,
+from ..scenariomanager.carla_data_provider import CarlaDataProvider
+from ..scenariomanager.scenarioatomics.atomic_behaviors import ActorFlow, TrafficLightFreezer
+from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import WaitEndIntersection
+from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from ..scenarios.basic_scenario import BasicScenario
+from ..tools.scenario_helper import (generate_target_waypoint,
                                            get_junction_topology,
                                            filter_junction_wp_direction,
                                            get_closest_traffic_light)
 
-from srunner.tools.background_manager import Scenario8Manager
+from ..tools.background_manager import Scenario8Manager
 
 
 class SignalizedJunctionLeftTurn(BasicScenario):

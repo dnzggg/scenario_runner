@@ -18,27 +18,26 @@ vehicle stopped close enough to the leading vehicle
 
 import random
 
+import carla
 import py_trees
 
-import carla
-
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
-                                                                      ActorDestroy,
-                                                                      KeepVelocity,
-                                                                      StopVehicle,
-                                                                      WaypointFollower,
-                                                                      Idle)
-from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToVehicle,
-                                                                               InTriggerDistanceToNextIntersection,
-                                                                               DriveDistance,
-                                                                               StandStill)
-from srunner.scenariomanager.timer import TimeOut
-from srunner.scenarios.basic_scenario import BasicScenario
-from srunner.tools.scenario_helper import get_waypoint_in_distance
-
-from srunner.tools.background_manager import Scenario2Manager
+from ..scenariomanager.carla_data_provider import CarlaDataProvider
+from ..scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
+                                                                ActorDestroy,
+                                                                KeepVelocity,
+                                                                StopVehicle,
+                                                                WaypointFollower,
+                                                                Idle)
+from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToVehicle,
+                                                                         InTriggerDistanceToNextIntersection,
+                                                                         DriveDistance,
+                                                                         StandStill)
+from ..scenariomanager.timer import TimeOut
+from ..scenarios.basic_scenario import BasicScenario
+from ..tools.background_manager import Scenario2Manager
+from ..tools.scenario_helper import get_location_in_distance
+from ..tools.scenario_helper import get_waypoint_in_distance
 
 
 class FollowLeadingVehicle(BasicScenario):
@@ -76,16 +75,15 @@ class FollowLeadingVehicle(BasicScenario):
                                                    world,
                                                    debug_mode,
                                                    criteria_enable=criteria_enable)
-
         if randomize:
             self._ego_other_distance_start = random.randint(4, 8)
 
             # Example code how to randomize start location
-            # distance = random.randint(20, 80)
-            # new_location, _ = get_location_in_distance(self.ego_vehicles[0], distance)
-            # waypoint = CarlaDataProvider.get_map().get_waypoint(new_location)
-            # waypoint.transform.location.z += 39
-            # self.other_actors[0].set_transform(waypoint.transform)
+            distance = random.randint(20, 80)
+            new_location, _ = get_location_in_distance(self.ego_vehicles[0], distance)
+            waypoint = CarlaDataProvider.get_map().get_waypoint(new_location)
+            waypoint.transform.location.z += 39
+            self.other_actors[0].set_transform(waypoint.transform)
 
     def _initialize_actors(self, config):
         """

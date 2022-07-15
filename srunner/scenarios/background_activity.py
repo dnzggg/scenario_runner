@@ -15,9 +15,9 @@ import numpy as np
 
 import carla
 
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.scenarioatomics.atomic_behaviors import AtomicBehavior
-from srunner.scenarios.basic_scenario import BasicScenario
+from ..scenariomanager.carla_data_provider import CarlaDataProvider
+from ..scenariomanager.scenarioatomics.atomic_behaviors import AtomicBehavior
+from ..scenarios.basic_scenario import BasicScenario
 
 DEBUG_COLORS = {
     'road': carla.Color(0, 0, 255),      # Blue

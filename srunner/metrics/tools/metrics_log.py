@@ -15,7 +15,8 @@ specific information
 """
 
 import fnmatch
-from srunner.metrics.tools.metrics_parser import MetricsParser
+from ..tools.metrics_parser import MetricsParser
+
 
 class MetricsLog(object):  # pylint: disable=too-many-public-methods
     """
@@ -30,7 +31,7 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         parser = MetricsParser(recorder)
         self._simulation, self._actors, self._frames = parser.parse_recorder_info()
 
-    ### Functions used to get general info of the simulation ###
+    # Functions used to get general info of the simulation ###
     def get_actor_collisions(self, actor_id):
         """
         Returns a dict where the keys are the frame number and the values,
@@ -198,6 +199,7 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
 
             # Check if the state exists
             if state not in frame_state[actor_id]:
+                print(frame_state[actor_id])
                 return None
 
             state_info = frame_state[actor_id][state]

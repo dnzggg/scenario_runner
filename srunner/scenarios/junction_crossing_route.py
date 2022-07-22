@@ -13,7 +13,7 @@ from __future__ import print_function
 
 import py_trees
 
-from ..scenariomanager.scenarioatomics.atomic_behaviors import TrafficLightManipulator
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import TrafficLightManipulator
 
 from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest, DrivenDistanceTest, MaxVelocityTest
 from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance, WaitEndIntersection

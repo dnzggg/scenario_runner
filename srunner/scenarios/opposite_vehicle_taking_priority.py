@@ -15,23 +15,23 @@ from __future__ import print_function
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
                                                                       ActorDestroy,
                                                                       TrafficLightFreezer,
                                                                       BasicAgentBehavior)
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToLocation,
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToLocation,
                                                                                InTimeToArrivalToLocation,
                                                                                WaitEndIntersection)
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.scenario_helper import (get_geometric_linear_intersection,
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.scenario_helper import (get_geometric_linear_intersection,
                                            generate_target_waypoint,
                                            get_junction_topology,
                                            filter_junction_wp_direction,
                                            get_closest_traffic_light)
 
-from ..tools.background_manager import Scenario7Manager
+from srunner.tools.background_manager import Scenario7Manager
 
 
 class OppositeVehicleRunningRedLight(BasicScenario):

@@ -131,7 +131,7 @@ class GlobalRoutePlanner(object):
         """
 
         self._graph = nx.DiGraph()
-        self._id_map = dict()  # Map with structure {(x,y,z): id, ... }
+        self._id_map = dict()  # Map with structure {(x,y,z): id, srunner.. }
         self._road_id_to_edge = dict()  # Map with structure {road_id: {lane_id: edge, ... }, ... }
 
         for segment in self._topology:

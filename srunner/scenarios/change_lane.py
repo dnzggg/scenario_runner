@@ -21,16 +21,16 @@ import random
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
                                                                       StopVehicle,
                                                                       LaneChange,
                                                                       WaypointFollower,
                                                                       Idle)
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import InTriggerDistanceToVehicle, StandStill
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.scenario_helper import get_waypoint_in_distance
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import InTriggerDistanceToVehicle, StandStill
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.scenario_helper import get_waypoint_in_distance
 
 
 class ChangeLane(BasicScenario):

@@ -15,8 +15,8 @@ import carla
 from agents.navigation.basic_agent import LocalPlanner
 from agents.navigation.local_planner import RoadOption
 
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.actorcontrols.basic_control import BasicControl
+from ...scenariomanager.carla_data_provider import CarlaDataProvider
+from ...scenariomanager.actorcontrols.basic_control import BasicControl
 
 
 class NpcVehicleControl(BasicControl):

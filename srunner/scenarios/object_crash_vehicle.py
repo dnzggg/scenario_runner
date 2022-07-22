@@ -14,16 +14,16 @@ import math
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import (ActorDestroy,
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import (ActorDestroy,
                                                                       KeepVelocity,
                                                                       Idle)
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToLocation,
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToLocation,
                                                                                InTimeToArrivalToLocation,
                                                                                DriveDistance)
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.scenario_helper import get_location_in_distance_from_wp
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.scenario_helper import get_location_in_distance_from_wp
 
 
 class StationaryObjectCrossing(BasicScenario):

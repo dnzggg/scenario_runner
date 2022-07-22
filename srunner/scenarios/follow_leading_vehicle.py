@@ -21,22 +21,22 @@ import random
 import carla
 import py_trees
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import (ActorTransformSetter,
                                                                 ActorDestroy,
                                                                 KeepVelocity,
                                                                 StopVehicle,
                                                                 WaypointFollower,
                                                                 Idle)
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToVehicle,
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import (InTriggerDistanceToVehicle,
                                                                          InTriggerDistanceToNextIntersection,
                                                                          DriveDistance,
                                                                          StandStill)
-from ..scenariomanager.timer import TimeOut
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.background_manager import Scenario2Manager
-from ..tools.scenario_helper import get_location_in_distance
+from srunner.scenariomanager.timer import TimeOut
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.background_manager import Scenario2Manager
+from srunner.tools.scenario_helper import get_location_in_distance
 from ..tools.scenario_helper import get_waypoint_in_distance
 
 

@@ -33,7 +33,7 @@ from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
 from srunner.scenariomanager.timer import GameTime
 from srunner.tools.scenario_helper import get_distance_along_route
 
-import srunner.tools as sr_tools
+from ... import tools as sr_tools
 
 EPSILON = 0.001
 

@@ -15,6 +15,10 @@ specific information
 """
 
 import fnmatch
+import math
+
+import carla
+
 from ..tools.metrics_parser import MetricsParser
 
 
@@ -199,7 +203,6 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
 
             # Check if the state exists
             if state not in frame_state[actor_id]:
-                print(frame_state[actor_id])
                 return None
 
             state_info = frame_state[actor_id][state]
@@ -280,6 +283,25 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         Returns the velocity of the actor at a given frame.
         """
         return self._get_actor_state(actor_id, "velocity", frame)
+
+    def _get_actor_delta_velocity(self, actor_id, frame):
+        """
+        Returns the delta velocity of the actor at a given frame.
+        """
+        try:
+            v = self._get_actor_state(actor_id, "velocity", frame)
+            v0 = self._get_actor_state(actor_id, "velocity", frame - 1)
+            return carla.Vector3D(v.x - v0.x, v.y - v0.y, v.z - v0.z)
+        except AttributeError:
+            return carla.Vector3D(0, 0, 0)
+
+    def get_actor_acceleration_variation(self, actor_id, frame):
+        """
+        Returns the acceleration of the actor at a given frame.
+        """
+        v = self._get_actor_delta_velocity(actor_id, frame)
+        t = self.get_delta_time(frame)
+        return carla.Vector3D(v.x / t, v.y / t, v.z / t)
 
     def get_all_actor_velocities(self, actor_id, first_frame=None, last_frame=None):
         """

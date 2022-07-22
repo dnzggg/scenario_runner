@@ -15,12 +15,12 @@ import itertools
 import os
 import py_trees
 
-from ..scenariomanager.scenarioatomics.atomic_behaviors import ChangeWeather, ChangeRoadFriction, ChangeParameter
-from ..scenariomanager.scenarioatomics.atomic_behaviors import ChangeActorControl, ChangeActorTargetSpeed
-from ..scenariomanager.timer import GameTime
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.openscenario_parser import OpenScenarioParser, oneshot_with_check, ParameterRef
-from ..tools.py_trees_port import Decorator
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import ChangeWeather, ChangeRoadFriction, ChangeParameter
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import ChangeActorControl, ChangeActorTargetSpeed
+from srunner.scenariomanager.timer import GameTime
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.openscenario_parser import OpenScenarioParser, oneshot_with_check, ParameterRef
+from srunner.tools.py_trees_port import Decorator
 
 
 def repeatable_behavior(behaviour, name=None):

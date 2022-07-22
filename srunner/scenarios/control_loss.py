@@ -16,11 +16,11 @@ from numpy import random
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.scenario_helper import get_waypoint_in_distance
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.scenario_helper import get_waypoint_in_distance
 
 
 class ControlLoss(BasicScenario):

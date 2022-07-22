@@ -22,28 +22,28 @@ import carla
 from agents.navigation.local_planner import RoadOption
 
 # pylint: disable=line-too-long
-from ..scenarioconfigs.scenario_configuration import ScenarioConfiguration, ActorConfigurationData
+from srunner.scenarioconfigs.scenario_configuration import ScenarioConfiguration, ActorConfigurationData
 # pylint: enable=line-too-long
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import Idle, ScenarioTriggerer
-from ..scenarios.basic_scenario import BasicScenario
-from ..tools.route_parser import RouteParser, TRIGGER_THRESHOLD, TRIGGER_ANGLE_THRESHOLD
-from ..tools.route_manipulation import interpolate_trajectory
-from ..tools.py_trees_port import oneshot_behavior
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import Idle, ScenarioTriggerer
+from srunner.scenarios.basic_scenario import BasicScenario
+from srunner.tools.route_parser import RouteParser, TRIGGER_THRESHOLD, TRIGGER_ANGLE_THRESHOLD
+from srunner.tools.route_manipulation import interpolate_trajectory
+from srunner.tools.py_trees_port import oneshot_behavior
 
-from ..scenarios.control_loss import ControlLoss
-from ..scenarios.follow_leading_vehicle import FollowLeadingVehicleRoute
-from ..scenarios.object_crash_vehicle import DynamicObjectCrossing
-from ..scenarios.object_crash_intersection import VehicleTurningRoute
-from ..scenarios.other_leading_vehicle import OtherLeadingVehicle
-from ..scenarios.maneuver_opposite_direction import ManeuverOppositeDirection
-from ..scenarios.junction_crossing_route import NoSignalJunctionCrossingRoute
-from ..scenarios.signalized_junction_left_turn import SignalizedJunctionLeftTurn
-from ..scenarios.signalized_junction_right_turn import SignalizedJunctionRightTurn
-from ..scenarios.opposite_vehicle_taking_priority import OppositeVehicleRunningRedLight
-from ..scenarios.background_activity import BackgroundActivity
+from srunner.scenarios.control_loss import ControlLoss
+from srunner.scenarios.follow_leading_vehicle import FollowLeadingVehicleRoute
+from srunner.scenarios.object_crash_vehicle import DynamicObjectCrossing
+from srunner.scenarios.object_crash_intersection import VehicleTurningRoute
+from srunner.scenarios.other_leading_vehicle import OtherLeadingVehicle
+from srunner.scenarios.maneuver_opposite_direction import ManeuverOppositeDirection
+from srunner.scenarios.junction_crossing_route import NoSignalJunctionCrossingRoute
+from srunner.scenarios.signalized_junction_left_turn import SignalizedJunctionLeftTurn
+from srunner.scenarios.signalized_junction_right_turn import SignalizedJunctionRightTurn
+from srunner.scenarios.opposite_vehicle_taking_priority import OppositeVehicleRunningRedLight
+from srunner.scenarios.background_activity import BackgroundActivity
 
-from ..scenariomanager.scenarioatomics.atomic_criteria import (CollisionTest,
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import (CollisionTest,
                                                                      InRouteTest,
                                                                      RouteCompletionTest,
                                                                      OutsideRouteLanesTest,

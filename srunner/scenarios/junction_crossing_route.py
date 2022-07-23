@@ -15,9 +15,9 @@ import py_trees
 
 from srunner.scenariomanager.scenarioatomics.atomic_behaviors import TrafficLightManipulator
 
-from ..scenariomanager.scenarioatomics.atomic_criteria import CollisionTest, DrivenDistanceTest, MaxVelocityTest
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance, WaitEndIntersection
-from ..scenarios.basic_scenario import BasicScenario
+from srunner.scenariomanager.scenarioatomics.atomic_criteria import CollisionTest, DrivenDistanceTest, MaxVelocityTest
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance, WaitEndIntersection
+from srunner.scenarios.basic_scenario import BasicScenario
 
 
 class SignalJunctionCrossingRoute(BasicScenario):

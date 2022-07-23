@@ -16,11 +16,11 @@ import time
 
 import py_trees
 
-from srunner.autoagents.agent_wrapper import AgentWrapper
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.result_writer import ResultOutputProvider
-from srunner.scenariomanager.timer import GameTime
-from srunner.scenariomanager.watchdog import Watchdog
+from ..autoagents.agent_wrapper import AgentWrapper
+from ..scenariomanager.carla_data_provider import CarlaDataProvider
+from ..scenariomanager.result_writer import ResultOutputProvider
+from ..scenariomanager.timer import GameTime
+from ..scenariomanager.watchdog import Watchdog
 
 
 class ScenarioManager(object):
@@ -41,7 +41,7 @@ class ScenarioManager(object):
     5. If needed, cleanup with manager.stop_scenario()
     """
 
-    def __init__(self, debug_mode=False, sync_mode=False, timeout=2.0):
+    def __init__(self, debug_mode=False, sync_mode=False, timeout=2.0, record=None):
         """
         Setups up the parameters, which will be filled at load_scenario()
 
@@ -64,6 +64,9 @@ class ScenarioManager(object):
         self.scenario_duration_game = 0.0
         self.start_system_time = None
         self.end_system_time = None
+
+        self._record = record
+        self._frame_count = 0
 
     def _reset(self):
         """

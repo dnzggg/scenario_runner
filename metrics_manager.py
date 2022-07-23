@@ -50,7 +50,7 @@ class MetricsManager(object):
         world = self._client.load_world(map_name)
         town_map = world.get_map()
 
-        # Instanciate the MetricsLog, used to querry the needed information
+        # Instantiate the MetricsLog, used to query the needed information
         log = MetricsLog(recorder_str)
 
         # Read and run the metric class

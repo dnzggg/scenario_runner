@@ -35,14 +35,14 @@ from agents.navigation.local_planner import RoadOption, LocalPlanner
 from agents.navigation.global_route_planner import GlobalRoutePlanner
 from agents.tools.misc import is_within_distance
 
-from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
-from srunner.scenariomanager.actorcontrols.actor_control import ActorControl
-from srunner.scenariomanager.timer import GameTime
-from srunner.tools.scenario_helper import detect_lane_obstacle
-from srunner.tools.scenario_helper import generate_target_waypoint_list_multilane
+from ...scenariomanager.carla_data_provider import CarlaDataProvider
+from ...scenariomanager.actorcontrols.actor_control import ActorControl
+from ...scenariomanager.timer import GameTime
+from ...tools.scenario_helper import detect_lane_obstacle
+from ...tools.scenario_helper import generate_target_waypoint_list_multilane
 
 
-import srunner.tools as sr_tools
+from ... import tools as sr_tools
 
 EPSILON = 0.001
 

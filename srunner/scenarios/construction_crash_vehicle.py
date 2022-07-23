@@ -13,9 +13,9 @@ from __future__ import print_function
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.scenarioatomics.atomic_behaviors import ActorDestroy
-from ..scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.scenarioatomics.atomic_behaviors import ActorDestroy
+from srunner.scenariomanager.scenarioatomics.atomic_trigger_conditions import DriveDistance
 from ..scenariomanager.scenarioatomics.atomic_behaviors import Idle
 from ..tools.scenario_helper import get_location_in_distance_from_wp
 from ..scenarios.object_crash_vehicle import StationaryObjectCrossing

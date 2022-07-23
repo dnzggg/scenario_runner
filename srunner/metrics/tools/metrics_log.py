@@ -15,7 +15,12 @@ specific information
 """
 
 import fnmatch
-from srunner.metrics.tools.metrics_parser import MetricsParser
+import math
+
+import carla
+
+from ..tools.metrics_parser import MetricsParser
+
 
 class MetricsLog(object):  # pylint: disable=too-many-public-methods
     """
@@ -30,7 +35,7 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         parser = MetricsParser(recorder)
         self._simulation, self._actors, self._frames = parser.parse_recorder_info()
 
-    ### Functions used to get general info of the simulation ###
+    # Functions used to get general info of the simulation ###
     def get_actor_collisions(self, actor_id):
         """
         Returns a dict where the keys are the frame number and the values,
@@ -278,6 +283,25 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         Returns the velocity of the actor at a given frame.
         """
         return self._get_actor_state(actor_id, "velocity", frame)
+
+    def _get_actor_delta_velocity(self, actor_id, frame):
+        """
+        Returns the delta velocity of the actor at a given frame.
+        """
+        try:
+            v = self._get_actor_state(actor_id, "velocity", frame)
+            v0 = self._get_actor_state(actor_id, "velocity", frame - 1)
+            return carla.Vector3D(v.x - v0.x, v.y - v0.y, v.z - v0.z)
+        except AttributeError:
+            return carla.Vector3D(0, 0, 0)
+
+    def get_actor_acceleration_variation(self, actor_id, frame):
+        """
+        Returns the acceleration of the actor at a given frame.
+        """
+        v = self._get_actor_delta_velocity(actor_id, frame)
+        t = self.get_delta_time(frame)
+        return carla.Vector3D(v.x / t, v.y / t, v.z / t)
 
     def get_all_actor_velocities(self, actor_id, first_frame=None, last_frame=None):
         """

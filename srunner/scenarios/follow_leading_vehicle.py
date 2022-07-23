@@ -37,7 +37,7 @@ from srunner.scenariomanager.timer import TimeOut
 from srunner.scenarios.basic_scenario import BasicScenario
 from srunner.tools.background_manager import Scenario2Manager
 from srunner.tools.scenario_helper import get_location_in_distance
-from srunner.tools.scenario_helper import get_waypoint_in_distance
+from ..tools.scenario_helper import get_waypoint_in_distance
 
 
 class FollowLeadingVehicle(BasicScenario):

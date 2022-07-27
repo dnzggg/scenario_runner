@@ -299,9 +299,12 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         """
         Returns the acceleration of the actor at a given frame.
         """
-        v = self._get_actor_delta_velocity(actor_id, frame)
-        t = self.get_delta_time(frame)
-        return carla.Vector3D(v.x / t, v.y / t, v.z / t)
+        try:
+            v = self._get_actor_delta_velocity(actor_id, frame)
+            t = self.get_delta_time(frame)
+            return carla.Vector3D(v.x / t, v.y / t, v.z / t)
+        except ZeroDivisionError:
+            return carla.Vector3D(0, 0, 0)
 
     def get_all_actor_velocities(self, actor_id, first_frame=None, last_frame=None):
         """

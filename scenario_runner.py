@@ -98,7 +98,7 @@ class ScenarioRunner(object):
         # If something goes wrong an exception will be thrown by importlib (ok here)
         if self._args.agent is not None:
             module_name = os.path.basename(args.agent).split('.')[0]
-            sys.path.insert(0, os.path.dirname(args.agent))
+            sys.path.insert(0, os.path.dirname(__file__) + "/" + os.path.dirname(args.agent))
             self.module_agent = importlib.import_module(module_name)
 
         # Create the ScenarioManager

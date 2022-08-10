@@ -18,10 +18,10 @@ import xmlschema
 import carla
 
 # pylint: disable=line-too-long
-from ..scenarioconfigs.scenario_configuration import ActorConfigurationData, ScenarioConfiguration
+from srunner.scenarioconfigs.scenario_configuration import ActorConfigurationData, ScenarioConfiguration
 # pylint: enable=line-too-long
-from ..scenariomanager.carla_data_provider import CarlaDataProvider  # workaround
-from ..tools.openscenario_parser import OpenScenarioParser, ParameterRef
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider  # workaround
+from srunner.tools.openscenario_parser import OpenScenarioParser, ParameterRef
 
 
 class OpenScenarioConfiguration(ScenarioConfiguration):
@@ -69,6 +69,7 @@ class OpenScenarioConfiguration(ScenarioConfiguration):
         xsd = xmlschema.XMLSchema(xsd_file)
         xsd.validate(self.xml_tree)
 
+    @staticmethod
     def _validate_openscenario_catalog_configuration(self, catalog_xml_tree):
         """
         Validate the given OpenSCENARIO catalog config against the 1.0 XSD

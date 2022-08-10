@@ -19,8 +19,8 @@ import ephem
 import py_trees
 import carla
 
-from ..scenariomanager.carla_data_provider import CarlaDataProvider
-from ..scenariomanager.timer import GameTime
+from srunner.scenariomanager.carla_data_provider import CarlaDataProvider
+from srunner.scenariomanager.timer import GameTime
 
 
 class Weather(object):

@@ -180,7 +180,7 @@ class World(object):
     def tick(self, clock):
         if len(self.world.get_actors().filter(self.player_name)) < 1:
             return False
-
+        print(self.world.get_actors().filter(self.player_name)[0].get_location())
         self.hud.tick(self, clock)
         return True
 

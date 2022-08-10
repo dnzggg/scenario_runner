@@ -28,7 +28,7 @@ except ImportError:
 
 import carla
 
-from ..autoagents.autonomous_agent import AutonomousAgent
+from srunner.autoagents.autonomous_agent import AutonomousAgent
 
 
 class HumanInterface(object):
@@ -150,32 +150,8 @@ class KeyboardControl(object):
         self._steer_cache = 0.0
         self._clock = pygame.time.Clock()
 
-        # Get the mode
-        if path_to_conf_file:
-
-            with (open(path_to_conf_file, "r")) as f:
-                lines = f.read().split("\n")
-                self._mode = lines[0].split(" ")[1]
-                self._endpoint = lines[1].split(" ")[1]
-
-            # Get the needed vars
-            if self._mode == "log":
-                self._log_data = {'records': []}
-
-            elif self._mode == "playback":
-                self._index = 0
-                self._control_list = []
-
-                with open(self._endpoint) as fd:
-                    try:
-                        self._records = json.load(fd)
-                        self._json_to_control()
-                    except ValueError:
-                        # Moving to Python 3.5+ this can be replaced with json.JSONDecodeError
-                        pass
-        else:
-            self._mode = "normal"
-            self._endpoint = None
+        self._mode = "normal"
+        self._endpoint = None
 
     def _json_to_control(self):
         """

@@ -12,7 +12,7 @@ This module provides the key configuration parameters for a route-based scenario
 import carla
 from agents.navigation.local_planner import RoadOption
 
-from ..scenarioconfigs.scenario_configuration import ScenarioConfiguration
+from srunner.scenarioconfigs.scenario_configuration import ScenarioConfiguration
 
 
 class RouteConfiguration(object):
@@ -34,10 +34,13 @@ class RouteConfiguration(object):
             x = float(waypoint.attrib.get('x', 0))
             y = float(waypoint.attrib.get('y', 0))
             z = float(waypoint.attrib.get('z', 0))
+            yaw = float(waypoint.attrib.get('yaw', 0))
+            pitch = float(waypoint.attrib.get('pitch', 0))
+            roll = float(waypoint.attrib.get('roll', 0))
             c = waypoint.attrib.get('connection', '')
-            connection = RoadOption[c.split('.')[1]]
+            # connection = RoadOption[c.split('.')[1]]
 
-            self.data.append((carla.Location(x, y, z), connection))
+            self.data.append((carla.Location(x, y, z)))  #, connection))
 
 
 class RouteScenarioConfiguration(ScenarioConfiguration):

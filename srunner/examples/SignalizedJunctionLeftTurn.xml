@@ -14,6 +14,9 @@
     </scenario>
     <scenario name="SignalizedJunctionLeftTurn_5" type="SignalizedJunctionLeftTurn" town="Town05">
         <ego_vehicle x="-76.5" y="-0.8" z="0.3" yaw="180" model="vehicle.lincoln.mkz_2017" />
+        <route>
+            <waypoint x="121.72344970703125" y="59.17844009399414" z="0.0" />
+        </route>
     </scenario>
     <scenario name="SignalizedJunctionLeftTurn_6" type="SignalizedJunctionLeftTurn" town="Town05">
         <ego_vehicle x="76.4" y="83" z="0.3" yaw="157" model="vehicle.lincoln.mkz_2017" />

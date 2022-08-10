@@ -82,7 +82,7 @@ class FollowLeadingVehicle(BasicScenario):
             distance = random.randint(20, 80)
             new_location, _ = get_location_in_distance(self.ego_vehicles[0], distance)
             waypoint = CarlaDataProvider.get_map().get_waypoint(new_location)
-            waypoint.transform.location.z += 39
+            waypoint.transform.location.x += 39
             self.other_actors[0].set_transform(waypoint.transform)
 
     def _initialize_actors(self, config):
@@ -208,6 +208,7 @@ class FollowLeadingVehicleWithObstacle(BasicScenario):
                            first_actor_waypoint.transform.location.y,
                            first_actor_waypoint.transform.location.z + 1),
             first_actor_waypoint.transform.rotation)
+
         yaw_1 = second_actor_waypoint.transform.rotation.yaw + 90
         second_actor_transform = carla.Transform(
             carla.Location(second_actor_waypoint.transform.location.x,
@@ -227,8 +228,8 @@ class FollowLeadingVehicleWithObstacle(BasicScenario):
         second_actor = CarlaDataProvider.request_new_actor(
             'vehicle.diamondback.century', second_actor_transform)
 
-        first_actor.set_simulate_physics(enabled=False)
-        second_actor.set_simulate_physics(enabled=False)
+        # first_actor.set_simulate_physics(enabled=False)
+        # second_actor.set_simulate_physics(enabled=False)
         self.other_actors.append(first_actor)
         self.other_actors.append(second_actor)
 
@@ -248,7 +249,7 @@ class FollowLeadingVehicleWithObstacle(BasicScenario):
             "Driving towards Intersection",
             policy=py_trees.common.ParallelPolicy.SUCCESS_ON_ONE)
 
-        obstacle_clear_road = py_trees.composites.Parallel("Obstalce clearing road",
+        obstacle_clear_road = py_trees.composites.Parallel("Obstacle clearing road",
                                                            policy=py_trees.common.ParallelPolicy.SUCCESS_ON_ONE)
         obstacle_clear_road.add_child(DriveDistance(self.other_actors[1], 4))
         obstacle_clear_road.add_child(KeepVelocity(self.other_actors[1], self._second_actor_speed))

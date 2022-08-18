@@ -180,7 +180,10 @@ class World(object):
     def tick(self, clock):
         if len(self.world.get_actors().filter(self.player_name)) < 1:
             return False
-        print(self.world.get_actors().filter(self.player_name)[0].get_location())
+        vehicle = self.world.get_actors().filter(self.player_name)[0]
+        waypoint = self.world.get_map().get_waypoint(vehicle.get_location(), project_to_road=True,
+                                                lane_type=carla.LaneType.Driving)
+        print(waypoint.road_id)
         self.hud.tick(self, clock)
         return True
 

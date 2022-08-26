@@ -181,9 +181,6 @@ class World(object):
         if len(self.world.get_actors().filter(self.player_name)) < 1:
             return False
         vehicle = self.world.get_actors().filter(self.player_name)[0]
-        waypoint = self.world.get_map().get_waypoint(vehicle.get_location(), project_to_road=True,
-                                                lane_type=carla.LaneType.Driving)
-        print(waypoint.road_id)
         self.hud.tick(self, clock)
         return True
 

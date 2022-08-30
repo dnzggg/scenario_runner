@@ -181,6 +181,7 @@ class World(object):
         if len(self.world.get_actors().filter(self.player_name)) < 1:
             return False
         vehicle = self.world.get_actors().filter(self.player_name)[0]
+        print(vehicle.get_transform())
         self.hud.tick(self, clock)
         return True
 

@@ -282,7 +282,8 @@ class MetricsLog(object):  # pylint: disable=too-many-public-methods
         """
         Returns the velocity of the actor at a given frame.
         """
-        return self._get_actor_state(actor_id, "velocity", frame)
+        vel = self._get_actor_state(actor_id, "velocity", frame)
+        return vel if vel else carla.Vector3D(0.0, 0.0, 0.0)
 
     def _get_actor_delta_velocity(self, actor_id, frame):
         """
